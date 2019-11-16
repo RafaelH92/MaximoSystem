@@ -118,6 +118,7 @@
             this.bntEntrar.TabIndex = 2;
             this.bntEntrar.Text = "ENTRAR";
             this.bntEntrar.UseSelectable = true;
+            this.bntEntrar.Click += new System.EventHandler(this.bntEntrar_Click);
             // 
             // btnSair
             // 

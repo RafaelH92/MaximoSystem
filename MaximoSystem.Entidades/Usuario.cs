@@ -8,10 +8,10 @@ namespace MaximoSystem.Entidades
 {
     public class Usuario
     {
-        private int Id { get; set; }
-        private string Nome { get; set; }
-        private string User { get; set; }
-        private string Senha { get; set; }
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string User { get; set; }
+        public string Senha { get; set; }
 
         public Usuario(int id, string nome, string usuario, string senha)
         {
@@ -19,6 +19,10 @@ namespace MaximoSystem.Entidades
             this.Nome = nome;
             this.User = usuario;
             this.Senha = senha;
+        }
+        public Usuario()
+        {
+            
         }
     }
 }

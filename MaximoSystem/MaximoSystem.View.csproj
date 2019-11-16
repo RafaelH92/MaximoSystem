@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastroUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroUsuarios.Designer.cs">
+      <DependentUpon>CadastroUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CadastroUsuarios.resx">
+      <DependentUpon>CadastroUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +124,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MaximoSystem.Entidades\MaximoSystem.Entidades.csproj">
+      <Project>{9f8d68c0-1f22-4a92-b133-e73dcb8ad17b}</Project>
+      <Name>MaximoSystem.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MaximoSystem.Model\MaximoSystem.Model.csproj">
+      <Project>{bd8e3e22-dbed-440e-921d-7892ebcb042f}</Project>
+      <Name>MaximoSystem.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
