@@ -155,6 +155,7 @@
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.None;
             this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "Identifique-se!";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TransparencyKey = System.Drawing.Color.SpringGreen;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
