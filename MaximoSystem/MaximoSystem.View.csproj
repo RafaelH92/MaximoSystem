@@ -87,6 +87,12 @@
     <Compile Include="frmCadCentroDeCusto.Designer.cs">
       <DependentUpon>frmCadCentroDeCusto.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadContaDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadContaDespesa.Designer.cs">
+      <DependentUpon>frmCadContaDespesa.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadCustoDespesa.cs">
       <SubType>Form</SubType>
     </Compile>

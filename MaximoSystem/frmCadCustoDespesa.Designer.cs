@@ -76,6 +76,7 @@
             this.Controls.Add(this.btnCentroDeCusto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCadCustoDespesa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmCadCustoDespesa";
             this.Load += new System.EventHandler(this.FrmCadCustoDespesa_Load);
             this.ResumeLayout(false);

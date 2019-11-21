@@ -19,22 +19,12 @@ namespace MaximoSystem
 
         private void FrmFluxoCaixa_Load(object sender, EventArgs e)
         {
-            frmHome frm = new frmHome();
-            frm.Close();
+           
         }
 
         private void BtmCadastros_Click(object sender, EventArgs e)
         {
-            pnlItemAtivo.Top = btmCadastros.Top;
-            frmCadCustoDespesa frm = new frmCadCustoDespesa();
-            frm.TopLevel = false;
-            
-            frm.Height = pnlBody.Height; 
-            frm.Width = pnlBody.Width;
-
-            pnlBody.Controls.Add(frm);
-           
-            frm.ShowDialog(this);
+            AddFormCadCustoDespesa();
         }
 
         private void BtnMovimentacoes_Click(object sender, EventArgs e)
@@ -51,5 +41,24 @@ namespace MaximoSystem
         {
             pnlItemAtivo.Top = btnRelatorio.Top;
         }
+
+       public void AddFormCadCustoDespesa()
+        {
+            pnlBody.Controls.Clear();
+
+            pnlItemAtivo.Top = btmCadastros.Top;
+            frmCadCustoDespesa frm = new frmCadCustoDespesa(this);
+            frm.TopLevel = false;
+
+            frm.Height = pnlBody.Height;
+            frm.Width = pnlBody.Width;
+                       
+
+            pnlBody.Controls.Add(frm);
+                     
+
+            frm.Show();
+        }
+
     }
 }
