@@ -2,10 +2,18 @@
 -- Sistema ........: MAXIMOSYSTEM
 -- Objeto de Banco.: Script
 -- Objetivo........: Criar tabelas
--- Data criação....: 21/11/2018 Versão: V1
--- Revisão ........:
--- Obs.............:
+-- Data criação....: 21/11/2019 Versão: V1
+-- Revisão ........: 22/11/2019	
+-- Obs.............: Corrigido problema com FK da tabela HIST_PRESTA_CONTAS.
 --************************************************
+
+---------------CRIAR_BASE_DADOS------------------
+
+CREATE DATABASE maximosystem
+GO
+
+USE maximosystem
+GO
 
 -------------TABELAS_FLUXO_CAIXA-----------------
 
@@ -32,7 +40,7 @@ create table CCUSTOS (
 
 --------------------------------------------------
 
-create table CDESPESA (
+create table CDESPESAS (
 	ID_CDES 	int IDENTITY(1,1) NOT NULL,
 	CD_CDESPESA numeric(15) NOT NULL, 
 	DE_CDESPESA varchar(20) NOT NULL,
@@ -77,12 +85,12 @@ create table PRESTA_CONTAS (
 	ID_CC			int,
 	CD_CCUSTO		numeric(15),
 	ID_CDES			int,
-	CD_CDESPESA		varchar(20),	
+	CD_CDESPESA		numeric(15),	
 	VL_SAIDA		decimal(5,2) NOT NULL,
 	FG_DISPONIVEL	char(3) NOT NULL CHECK (FG_DISPONIVEL IN ('SIM', 'NAO')),
 
 	CONSTRAINT fk_CcContas   FOREIGN KEY (ID_CC, CD_CCUSTO) REFERENCES CCUSTOS (ID_CC, CD_CCUSTO),
-	CONSTRAINT fk_CdesContas FOREIGN KEY (ID_CDES, CD_CDESPESA) REFERENCES CDESPESA (ID_CDES, CD_CDESPESA),
+	CONSTRAINT fk_CdesContas FOREIGN KEY (ID_CDES, CD_CDESPESA) REFERENCES CDESPESAS (ID_CDES, CD_CDESPESA),
 	PRIMARY KEY (ID_PRE_CON)	
 
 )
@@ -92,15 +100,15 @@ create table PRESTA_CONTAS (
 create table HIST_PRESTA_CONTAS (
 	ID_HIS_PRE_CON	  int IDENTITY (1,1) NOT NULL,
 	ID_CC			  int,
-	CD_CCUSTO		  numeric(20),
+	CD_CCUSTO		  numeric(15),
 	ID_CDES			  int,
-	CD_CDESPESA		  varchar(20),
+	CD_CDESPESA		  numeric(15),
 	DE_PRESTACAO	  varchar(255),
-	DT_PROCESSAMENTO  date,	
-	VALOR 			  decimal(5,2)
+	DT_PROCESSAMENTO  date NOT NULL,	
+	VALOR 			  decimal(5,2) NOT NULL,
 
 	CONSTRAINT fk_CcHisContas   FOREIGN KEY (ID_CC, CD_CCUSTO) REFERENCES CCUSTOS (ID_CC, CD_CCUSTO),
-	CONSTRAINT fk_CdesHisContas FOREIGN KEY (ID_CDES, CD_CDESPESA) REFERENCES CDESPESA (ID_CDES, CD_CDESPESA),
+	CONSTRAINT fk_CdesHisContas FOREIGN KEY (ID_CDES, CD_CDESPESA) REFERENCES CDESPESAS (ID_CDES, CD_CDESPESA),
 	PRIMARY KEY (ID_HIS_PRE_CON)
 	
 )
