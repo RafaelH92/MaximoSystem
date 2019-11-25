@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MaximoSystem
 {
-    public partial class frmCadContaDespesa : Form
+    public partial class frmFluxoPrestacao : Form
     {
-        public frmCadContaDespesa()
+        public frmFluxoPrestacao()
         {
             InitializeComponent();
         }

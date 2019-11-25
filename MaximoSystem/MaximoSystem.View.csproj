@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialSkin">
+      <HintPath>..\..\..\source\repos\TESTE\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -75,23 +78,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CadastroUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CadastroUsuarios.Designer.cs">
-      <DependentUpon>CadastroUsuarios.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCadCentroDeCusto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCadCentroDeCusto.Designer.cs">
       <DependentUpon>frmCadCentroDeCusto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmCadContaDespesa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCadContaDespesa.Designer.cs">
-      <DependentUpon>frmCadContaDespesa.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCadCustoDespesa.cs">
       <SubType>Form</SubType>
@@ -105,6 +96,12 @@
     <Compile Include="frmFluxoCaixa.Designer.cs">
       <DependentUpon>frmFluxoCaixa.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFluxoPrestacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFluxoPrestacao.Designer.cs">
+      <DependentUpon>frmFluxoPrestacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,11 +114,14 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMovimentacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMovimentacao.Designer.cs">
+      <DependentUpon>frmMovimentacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CadastroUsuarios.resx">
-      <DependentUpon>CadastroUsuarios.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCadCentroDeCusto.resx">
       <DependentUpon>frmCadCentroDeCusto.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,11 +131,17 @@
     <EmbeddedResource Include="frmFluxoCaixa.resx">
       <DependentUpon>frmFluxoCaixa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmFluxoPrestacao.resx">
+      <DependentUpon>frmFluxoPrestacao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMovimentacao.resx">
+      <DependentUpon>frmMovimentacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -182,5 +188,6 @@
       <Name>MaximoSystem.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

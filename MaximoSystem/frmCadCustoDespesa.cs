@@ -15,6 +15,8 @@ namespace MaximoSystem
     public partial class frmCadCustoDespesa : Form
     {
         frmFluxoCaixa frmCaixa;
+
+        public static int IdForm;
         public frmCadCustoDespesa(frmFluxoCaixa frm)
         {
             InitializeComponent();
@@ -30,11 +32,18 @@ namespace MaximoSystem
 
         private void BtnCentroDeCusto_Click(object sender, EventArgs e)
         {
-            AddFormCadCentroDeCusto();
-            
+            IdForm = 1;
+            AddForm();
+
         }
 
-       public void AddFormCadCentroDeCusto()
+        private void BtnContaDespesa_Click(object sender, EventArgs e)
+        {
+            IdForm = 2;
+            AddForm();
+           
+        }
+        public void AddForm()
         {
             //LIMPA O PAINEL
             frmCaixa.pnlBody.Controls.Clear();
@@ -48,13 +57,16 @@ namespace MaximoSystem
             frmCusto.Height = frmCaixa.pnlBody.Height;
             frmCusto.Width = frmCaixa.pnlBody.Width;
 
-            
+
             frmCaixa.pnlBody.Controls.Add(frmCusto);
 
+          
 
-            
             frmCusto.Show();
-
+          
         }
+
+               
+       
     }
 }

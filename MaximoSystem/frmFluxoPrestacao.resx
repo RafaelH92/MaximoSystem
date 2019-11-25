@@ -117,4 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnContaDespesa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA68AAAOvAGVvHJJAAAAAmJL
+        R0QAAKqNIzIAAAAHdElNRQfjCxUNJyncvOxqAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTExLTIxVDEz
+        OjM5OjQxKzAwOjAwe8xiegAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0xMS0yMVQxMzozOTo0MSswMDow
+        MAqR2sYAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAiklEQVRYR+2XUQqAIBBE
+        vYGdSAy6UUfNuo7N6PoXgX7ozzwYkKWYBxFbbpSc84Y8yI14G88DpQFpBBvPA6WxdheijefB0tpdkIAE
+        JCABCYwL4GZutR05OnMiDZ6/rvkLOzcKcJ2uIq0WuCjgkVWPYPxDBjfrNZSABCQgAQks/znlFuUqTzzb
+        uBPnXq51ZJJiidezAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnFluxoCaixa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA69AAAOvQFH+5CtAAAAAmJL
+        R0QAAKqNIzIAAAAHdElNRQfjCxUNJyncvOxqAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTExLTIxVDEz
+        OjM5OjQxKzAwOjAwe8xiegAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0xMS0yMVQxMzozOTo0MSswMDow
+        MAqR2sYAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAiklEQVRYR+2XUQqAIBBE
+        vYGdSAy6UUfNuo7N6PoXgX7ozzwYkKWYBxFbbpSc84Y8yI14G88DpQFpBBvPA6WxdheijefB0tpdkIAE
+        JCABCYwL4GZutR05OnMiDZ6/rvkLOzcKcJ2uIq0WuCjgkVWPYPxDBjfrNZSABCQgAQks/znlFuUqTzzb
+        uBPnXq51ZJJiidezAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>
