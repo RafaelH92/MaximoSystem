@@ -30,21 +30,8 @@ namespace MaximoSystem
         private void BtnMovimentacoes_Click(object sender, EventArgs e)
         {
 
-            pnlBody.Controls.Clear();
+            AddFormFluxoPrestacao();
 
-            pnlItemAtivo.Top = btnMovimentacoes.Top;
-          
-            frmMovimentacao frm = new frmMovimentacao();
-            frm.TopLevel = false;
-
-            frm.Height = pnlBody.Height;
-            frm.Width = pnlBody.Width;
-
-
-            pnlBody.Controls.Add(frm);
-
-
-            frm.Show();
         }
 
         private void BtnProcessamento_Click(object sender, EventArgs e)
@@ -74,7 +61,23 @@ namespace MaximoSystem
 
             frm.Show();
         }
+        public void AddFormFluxoPrestacao()
+        {
+            pnlBody.Controls.Clear();
 
-       
+            pnlItemAtivo.Top = btnMovimentacoes.Top;
+            frmFluxoPrestacao frm = new frmFluxoPrestacao(this);
+            frm.TopLevel = false;
+
+            frm.Height = pnlBody.Height;
+            frm.Width = pnlBody.Width;
+
+
+            pnlBody.Controls.Add(frm);
+
+
+            frm.Show();
+        }
+
     }
 }

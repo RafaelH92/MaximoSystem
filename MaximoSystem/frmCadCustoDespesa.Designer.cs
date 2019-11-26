@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadCustoDespesa));
             this.btnCentroDeCusto = new System.Windows.Forms.Button();
             this.btnContaDespesa = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCentroDeCusto
@@ -41,11 +41,10 @@
             this.btnCentroDeCusto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCentroDeCusto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCentroDeCusto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCentroDeCusto.Image = ((System.Drawing.Image)(resources.GetObject("btnCentroDeCusto.Image")));
             this.btnCentroDeCusto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCentroDeCusto.Location = new System.Drawing.Point(268, 115);
+            this.btnCentroDeCusto.Location = new System.Drawing.Point(164, 107);
             this.btnCentroDeCusto.Name = "btnCentroDeCusto";
-            this.btnCentroDeCusto.Size = new System.Drawing.Size(212, 56);
+            this.btnCentroDeCusto.Size = new System.Drawing.Size(164, 41);
             this.btnCentroDeCusto.TabIndex = 1;
             this.btnCentroDeCusto.Text = "&Centro de Custo";
             this.btnCentroDeCusto.UseVisualStyleBackColor = false;
@@ -59,15 +58,25 @@
             this.btnContaDespesa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContaDespesa.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContaDespesa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnContaDespesa.Image = ((System.Drawing.Image)(resources.GetObject("btnContaDespesa.Image")));
             this.btnContaDespesa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContaDespesa.Location = new System.Drawing.Point(268, 217);
+            this.btnContaDespesa.Location = new System.Drawing.Point(164, 169);
             this.btnContaDespesa.Name = "btnContaDespesa";
-            this.btnContaDespesa.Size = new System.Drawing.Size(212, 56);
+            this.btnContaDespesa.Size = new System.Drawing.Size(164, 43);
             this.btnContaDespesa.TabIndex = 1;
             this.btnContaDespesa.Text = "&Conta Despesa";
             this.btnContaDespesa.UseVisualStyleBackColor = false;
             this.btnContaDespesa.Click += new System.EventHandler(this.BtnContaDespesa_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label1.Location = new System.Drawing.Point(160, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(610, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Cadastre os centros de custos e contas despesas usadas na prestação de contas.\r\n";
             // 
             // frmCadCustoDespesa
             // 
@@ -75,6 +84,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.ClientSize = new System.Drawing.Size(925, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnContaDespesa);
             this.Controls.Add(this.btnCentroDeCusto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -83,6 +93,7 @@
             this.Text = "frmCadCustoDespesa";
             this.Load += new System.EventHandler(this.FrmCadCustoDespesa_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -90,5 +101,6 @@
 
         private System.Windows.Forms.Button btnCentroDeCusto;
         private System.Windows.Forms.Button btnContaDespesa;
+        private System.Windows.Forms.Label label1;
     }
 }
