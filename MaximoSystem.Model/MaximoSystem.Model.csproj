@@ -41,14 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MaximoSystem.DAO\MaximoSystem.DAO.csproj">
-      <Project>{0a4aee49-951e-45a4-8623-7fa5d5d4ab7e}</Project>
-      <Name>MaximoSystem.DAO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MaximoSystem.Entidades\MaximoSystem.Entidades.csproj">
       <Project>{9f8d68c0-1f22-4a92-b133-e73dcb8ad17b}</Project>
       <Name>MaximoSystem.Entidades</Name>

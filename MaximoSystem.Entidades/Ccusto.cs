@@ -7,14 +7,12 @@ using MaximoSystem.Entidades.Enums;
 
 namespace MaximoSystem.Entidades
 {
-    public class Usuario
+    public class Ccusto
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string User { get; set; }
-        public string Senha { get; set; }
+        public int Id_cc { get; set; }
+        public long Cd_custo { get; set; }
+        public string De_custo { get; set; }
         public EnumAtivoInativo Fg_ativo { get; set; }
 
     }
 }
-
