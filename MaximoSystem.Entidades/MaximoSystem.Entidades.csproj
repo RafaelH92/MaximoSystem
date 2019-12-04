@@ -45,7 +45,10 @@
     <Compile Include="Cdespesa.cs" />
     <Compile Include="Enums\EnumAtivoInativo.cs" />
     <Compile Include="Enums\EnumFuncionario.cs" />
+    <Compile Include="Enums\EnumTpOper.cs" />
+    <Compile Include="FluxoCaixa.cs" />
     <Compile Include="Funcionario.cs" />
+    <Compile Include="PrestaConta.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

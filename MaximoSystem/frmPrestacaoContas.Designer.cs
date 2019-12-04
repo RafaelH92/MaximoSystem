@@ -34,6 +34,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrestacaoContas));
             this.dgvFluxoCaixa = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroSetComboBox1 = new MetroSet_UI.Controls.MetroSetComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,9 +45,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.metroSetComboBox2 = new MetroSet_UI.Controls.MetroSetComboBox();
             this.metroSetComboBox3 = new MetroSet_UI.Controls.MetroSetComboBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -112,6 +112,25 @@
             this.dgvFluxoCaixa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFluxoCaixa.Size = new System.Drawing.Size(864, 236);
             this.dgvFluxoCaixa.TabIndex = 22;
+            this.dgvFluxoCaixa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFluxoCaixa_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "CENTRO DE CUSTO / CONTA DESPESA";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "VALOR";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 150;
             // 
             // metroSetComboBox1
             // 
@@ -136,7 +155,7 @@
             "RAFAEL BAITOLA"});
             this.metroSetComboBox1.Location = new System.Drawing.Point(193, 86);
             this.metroSetComboBox1.Name = "metroSetComboBox1";
-            this.metroSetComboBox1.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(83)))), ((int)(((byte)(69)))));
+            this.metroSetComboBox1.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.metroSetComboBox1.SelectedItemForeColor = System.Drawing.Color.White;
             this.metroSetComboBox1.Size = new System.Drawing.Size(310, 26);
             this.metroSetComboBox1.Style = MetroSet_UI.Design.Style.Dark;
@@ -227,7 +246,7 @@
             "50369"});
             this.metroSetComboBox2.Location = new System.Drawing.Point(193, 131);
             this.metroSetComboBox2.Name = "metroSetComboBox2";
-            this.metroSetComboBox2.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(83)))), ((int)(((byte)(69)))));
+            this.metroSetComboBox2.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.metroSetComboBox2.SelectedItemForeColor = System.Drawing.Color.White;
             this.metroSetComboBox2.Size = new System.Drawing.Size(122, 26);
             this.metroSetComboBox2.Style = MetroSet_UI.Design.Style.Dark;
@@ -259,7 +278,7 @@
             "20111"});
             this.metroSetComboBox3.Location = new System.Drawing.Point(193, 174);
             this.metroSetComboBox3.Name = "metroSetComboBox3";
-            this.metroSetComboBox3.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(83)))), ((int)(((byte)(69)))));
+            this.metroSetComboBox3.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.metroSetComboBox3.SelectedItemForeColor = System.Drawing.Color.White;
             this.metroSetComboBox3.Size = new System.Drawing.Size(122, 26);
             this.metroSetComboBox3.Style = MetroSet_UI.Design.Style.Dark;
@@ -267,24 +286,6 @@
             this.metroSetComboBox3.TabIndex = 21;
             this.metroSetComboBox3.ThemeAuthor = "Narwin";
             this.metroSetComboBox3.ThemeName = "MetroDark";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "CENTRO DE CUSTO / CONTA DESPESA";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 300;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "VALOR";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 150;
             // 
             // label7
             // 

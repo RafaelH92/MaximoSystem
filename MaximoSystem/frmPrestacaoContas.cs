@@ -24,5 +24,10 @@ namespace MaximoSystem
         {
 
         }
+
+        private void dgvFluxoCaixa_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

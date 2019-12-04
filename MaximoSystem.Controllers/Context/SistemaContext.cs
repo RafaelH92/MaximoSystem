@@ -21,6 +21,8 @@ namespace MaximoSystem.Controllers.Context
         public DbSet<Ccusto> Ccusto  { get; set; }
         public DbSet<Cdespesa> Cdespesa { get; set; }
         public DbSet<Funcionario> Funcionario { get; set; }
+        public DbSet<FluxoCaixa> FluxoCaixa { get; set; }
+        public DbSet<PrestaConta> PrestaConta { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) //ACESSA AS TABELAS/OBJETOS E GERA O CONTEXTO
         {
@@ -29,6 +31,8 @@ namespace MaximoSystem.Controllers.Context
             modelBuilder.Configurations.Add(new CcustoMap());
             modelBuilder.Configurations.Add(new CdespesaMap());
             modelBuilder.Configurations.Add(new FuncionarioMap());
+            modelBuilder.Configurations.Add(new FluxoCaixaMap());
+            modelBuilder.Configurations.Add(new PrestaContaMap());
             base.OnModelCreating(modelBuilder);
 
         }
