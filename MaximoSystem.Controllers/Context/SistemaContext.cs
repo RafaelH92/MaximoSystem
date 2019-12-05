@@ -23,6 +23,7 @@ namespace MaximoSystem.Controllers.Context
         public DbSet<Funcionario> Funcionario { get; set; }
         public DbSet<FluxoCaixa> FluxoCaixa { get; set; }
         public DbSet<PrestaConta> PrestaConta { get; set; }
+        public DbSet<HistPrestaConta> HistPrestaConta { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) //ACESSA AS TABELAS/OBJETOS E GERA O CONTEXTO
         {

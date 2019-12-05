@@ -48,6 +48,7 @@
     <Compile Include="Enums\EnumTpOper.cs" />
     <Compile Include="FluxoCaixa.cs" />
     <Compile Include="Funcionario.cs" />
+    <Compile Include="HistPrestaConta.cs" />
     <Compile Include="PrestaConta.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
