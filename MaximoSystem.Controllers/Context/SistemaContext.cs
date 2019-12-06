@@ -34,6 +34,7 @@ namespace MaximoSystem.Controllers.Context
             modelBuilder.Configurations.Add(new FuncionarioMap());
             modelBuilder.Configurations.Add(new FluxoCaixaMap());
             modelBuilder.Configurations.Add(new PrestaContaMap());
+            modelBuilder.Configurations.Add(new HistPrestaContaMap());
             base.OnModelCreating(modelBuilder);
 
         }

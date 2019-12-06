@@ -57,27 +57,41 @@
                 .PrimaryKey(t => new { t.ID_FUNC, t.CD_FUNC });
             
             CreateTable(
-                "dbo.PRESTACONTAS",
+                "dbo.HIST_PRESTA_CONTAS",
+                c => new
+                    {
+                        ID_HIS_PRE_CON = c.Int(nullable: false, identity: true),
+                        DT_PROCESSAMENTO = c.DateTime(nullable: false),
+                        ID_CC = c.Int(nullable: false),
+                        CD_CUSTO = c.Long(nullable: false),
+                        ID_CDES = c.Int(nullable: false),
+                        CD_CDESPESA = c.Long(nullable: false),
+                        VALOR = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    })
+                .PrimaryKey(t => t.ID_HIS_PRE_CON)
+                .ForeignKey("dbo.CCUSTOS", t => new { t.ID_CC, t.CD_CUSTO }, cascadeDelete: true)
+                .ForeignKey("dbo.CDESPESAS", t => new { t.ID_CDES, t.CD_CDESPESA }, cascadeDelete: true)
+                .Index(t => new { t.ID_CC, t.CD_CUSTO })
+                .Index(t => new { t.ID_CDES, t.CD_CDESPESA });
+            
+            CreateTable(
+                "dbo.PRESTA_CONTAS",
                 c => new
                     {
                         ID_PRE_CON = c.Int(nullable: false, identity: true),
                         DT_MOVIMENTO = c.DateTime(nullable: false),
                         ID_CC = c.Int(nullable: false),
-                        CD_CUSTO = c.Int(nullable: false),
+                        CD_CUSTO = c.Long(nullable: false),
                         ID_CDES = c.Int(nullable: false),
-                        CD_CDESPESA = c.Int(nullable: false),
+                        CD_CDESPESA = c.Long(nullable: false),
                         VL_SAIDA = c.Decimal(nullable: false, precision: 18, scale: 2),
                         FG_DISPONIVEL = c.Int(nullable: false),
-                        Ccusto_Id_cc = c.Int(),
-                        Ccusto_Cd_custo = c.Long(),
-                        Cdespesa_Id_cdes = c.Int(),
-                        Cdespesa_Cd_cdespesa = c.Long(),
                     })
                 .PrimaryKey(t => t.ID_PRE_CON)
-                .ForeignKey("dbo.CCUSTOS", t => new { t.Ccusto_Id_cc, t.Ccusto_Cd_custo })
-                .ForeignKey("dbo.CDESPESAS", t => new { t.Cdespesa_Id_cdes, t.Cdespesa_Cd_cdespesa })
-                .Index(t => new { t.Ccusto_Id_cc, t.Ccusto_Cd_custo })
-                .Index(t => new { t.Cdespesa_Id_cdes, t.Cdespesa_Cd_cdespesa });
+                .ForeignKey("dbo.CCUSTOS", t => new { t.ID_CC, t.CD_CUSTO }, cascadeDelete: true)
+                .ForeignKey("dbo.CDESPESAS", t => new { t.ID_CDES, t.CD_CDESPESA }, cascadeDelete: true)
+                .Index(t => new { t.ID_CC, t.CD_CUSTO })
+                .Index(t => new { t.ID_CDES, t.CD_CDESPESA });
             
             CreateTable(
                 "dbo.USUARIOS",
@@ -95,14 +109,19 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.PRESTACONTAS", new[] { "Cdespesa_Id_cdes", "Cdespesa_Cd_cdespesa" }, "dbo.CDESPESAS");
-            DropForeignKey("dbo.PRESTACONTAS", new[] { "Ccusto_Id_cc", "Ccusto_Cd_custo" }, "dbo.CCUSTOS");
+            DropForeignKey("dbo.PRESTA_CONTAS", new[] { "ID_CDES", "CD_CDESPESA" }, "dbo.CDESPESAS");
+            DropForeignKey("dbo.PRESTA_CONTAS", new[] { "ID_CC", "CD_CUSTO" }, "dbo.CCUSTOS");
+            DropForeignKey("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CDES", "CD_CDESPESA" }, "dbo.CDESPESAS");
+            DropForeignKey("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CC", "CD_CUSTO" }, "dbo.CCUSTOS");
             DropForeignKey("dbo.FLUXO_CAIXA", new[] { "ID_FUNC", "CD_FUNC" }, "dbo.FUNCIONARIOS");
-            DropIndex("dbo.PRESTACONTAS", new[] { "Cdespesa_Id_cdes", "Cdespesa_Cd_cdespesa" });
-            DropIndex("dbo.PRESTACONTAS", new[] { "Ccusto_Id_cc", "Ccusto_Cd_custo" });
+            DropIndex("dbo.PRESTA_CONTAS", new[] { "ID_CDES", "CD_CDESPESA" });
+            DropIndex("dbo.PRESTA_CONTAS", new[] { "ID_CC", "CD_CUSTO" });
+            DropIndex("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CDES", "CD_CDESPESA" });
+            DropIndex("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CC", "CD_CUSTO" });
             DropIndex("dbo.FLUXO_CAIXA", new[] { "ID_FUNC", "CD_FUNC" });
             DropTable("dbo.USUARIOS");
-            DropTable("dbo.PRESTACONTAS");
+            DropTable("dbo.PRESTA_CONTAS");
+            DropTable("dbo.HIST_PRESTA_CONTAS");
             DropTable("dbo.FUNCIONARIOS");
             DropTable("dbo.FLUXO_CAIXA");
             DropTable("dbo.CDESPESAS");

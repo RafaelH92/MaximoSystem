@@ -12,10 +12,10 @@ namespace MaximoSystem.Entidades
         public int Id_his_pre_con { get; set; }
         public DateTime Dt_processamento { get; set; }
         public int Id_cc { get; set; }
-        public int Cd_custo { get; set; }
+        public long Cd_custo { get; set; }
         public virtual Ccusto Ccusto { get; set; }
         public int Id_cdes { get; set; }
-        public int Cd_cdespesa { get; set; }
+        public long Cd_cdespesa { get; set; }
         public virtual Cdespesa Cdespesa { get; set; }
         public decimal Valor { get; set; }
         
