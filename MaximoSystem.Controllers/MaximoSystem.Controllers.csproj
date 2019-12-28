@@ -60,16 +60,15 @@
     <Compile Include="Map\HistPrestaContaMap.cs" />
     <Compile Include="Map\PrestaContaMap.cs" />
     <Compile Include="Map\UsuarioMap.cs" />
-    <Compile Include="Migrations\201912061352058_banco.cs" />
-    <Compile Include="Migrations\201912061352058_banco.designer.cs">
-      <DependentUpon>201912061352058_banco.cs</DependentUpon>
+    <Compile Include="Migrations\201912131634539_banco.cs" />
+    <Compile Include="Migrations\201912131634539_banco.designer.cs">
+      <DependentUpon>201912131634539_banco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\CcustoRep.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositorios\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -81,8 +80,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201912061352058_banco.resx">
-      <DependentUpon>201912061352058_banco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912131634539_banco.resx">
+      <DependentUpon>201912131634539_banco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -12,7 +12,7 @@ namespace MaximoSystem.Controllers.Context
 {
     class SistemaContext : DbContext 
     {
-        public SistemaContext() : base ("Server=CP0490\\SQLEXPRESS; Database=maximosystem; Integrated Security=True;")
+        public SistemaContext() : base ("Server=LGGRAMDERAFAEL\\SQLEXPRESS; Database=maximosystem; Integrated Security=True;")
         {
 
         }

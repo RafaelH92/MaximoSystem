@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaximoSystem.WcfService;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace MaximoSystem
         frmFluxoCaixa frm;
         frmCadCustoDespesa frmCusto;
         bool checkCancel = true;
+        CcustoService service = new CcustoService();
       
         public frmCadCentroDeCusto(frmFluxoCaixa frmCaixa)
         {

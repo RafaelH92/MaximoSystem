@@ -196,6 +196,10 @@
       <Project>{bd8e3e22-dbed-440e-921d-7892ebcb042f}</Project>
       <Name>MaximoSystem.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MaximoSystem.WcfService\MaximoSystem.WcfService.csproj">
+      <Project>{6B667A07-2922-49D1-A18E-A19CD4750324}</Project>
+      <Name>MaximoSystem.WcfService</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
