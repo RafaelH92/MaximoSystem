@@ -60,10 +60,6 @@
     <Compile Include="Map\HistPrestaContaMap.cs" />
     <Compile Include="Map\PrestaContaMap.cs" />
     <Compile Include="Map\UsuarioMap.cs" />
-    <Compile Include="Migrations\201912131634539_banco.cs" />
-    <Compile Include="Migrations\201912131634539_banco.designer.cs">
-      <DependentUpon>201912131634539_banco.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\CcustoRep.cs" />
@@ -78,11 +74,6 @@
       <Project>{9f8d68c0-1f22-4a92-b133-e73dcb8ad17b}</Project>
       <Name>MaximoSystem.Entidades</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201912131634539_banco.resx">
-      <DependentUpon>201912131634539_banco.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

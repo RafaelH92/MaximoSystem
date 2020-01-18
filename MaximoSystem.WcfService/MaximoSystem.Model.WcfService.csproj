@@ -90,9 +90,9 @@
       <Project>{9f8d68c0-1f22-4a92-b133-e73dcb8ad17b}</Project>
       <Name>MaximoSystem.Entidades</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MaximoSystem.Model\MaximoSystem.Model.csproj">
+    <ProjectReference Include="..\MaximoSystem.Model\MaximoSystem.Model.Interfaces.csproj">
       <Project>{bd8e3e22-dbed-440e-921d-7892ebcb042f}</Project>
-      <Name>MaximoSystem.Model</Name>
+      <Name>MaximoSystem.Model.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -5,13 +5,21 @@ VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximoSystem.View", "MaximoSystem.View.csproj", "{A0CE2A78-FE3A-4FE5-8A1B-6A5EA6144A55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximoSystem.Model", "..\MaximoSystem.Model\MaximoSystem.Model.csproj", "{BD8E3E22-DBED-440E-921D-7892EBCB042F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximoSystem.Model.Interfaces", "..\MaximoSystem.Model\MaximoSystem.Model.Interfaces.csproj", "{BD8E3E22-DBED-440E-921D-7892EBCB042F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximoSystem.Entidades", "..\MaximoSystem.Entidades\MaximoSystem.Entidades.csproj", "{9F8D68C0-1F22-4A92-B133-E73DCB8AD17B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximoSystem.Controllers", "..\MaximoSystem.Controllers\MaximoSystem.Controllers.csproj", "{DFE5D919-1D42-43DB-BFE4-FA4430E3F246}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximoSystem.WcfService", "..\MaximoSystem.WcfService\MaximoSystem.WcfService.csproj", "{6B667A07-2922-49D1-A18E-A19CD4750324}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximoSystem.Model.WcfService", "..\MaximoSystem.WcfService\MaximoSystem.Model.WcfService.csproj", "{6B667A07-2922-49D1-A18E-A19CD4750324}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "View", "View", "{EB9517C3-4846-4C2C-BE0D-7733D7F7D439}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{CB0C5879-A45D-448C-BE75-823BD018DA44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controlles", "Controlles", "{31A2655B-397A-4F24-85A9-59D6A5E48BC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entidades", "Entidades", "{A80D1B5E-022C-43BB-AD28-0E52E3B4E8A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +50,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A0CE2A78-FE3A-4FE5-8A1B-6A5EA6144A55} = {EB9517C3-4846-4C2C-BE0D-7733D7F7D439}
+		{BD8E3E22-DBED-440E-921D-7892EBCB042F} = {CB0C5879-A45D-448C-BE75-823BD018DA44}
+		{9F8D68C0-1F22-4A92-B133-E73DCB8AD17B} = {A80D1B5E-022C-43BB-AD28-0E52E3B4E8A8}
+		{DFE5D919-1D42-43DB-BFE4-FA4430E3F246} = {31A2655B-397A-4F24-85A9-59D6A5E48BC4}
+		{6B667A07-2922-49D1-A18E-A19CD4750324} = {CB0C5879-A45D-448C-BE75-823BD018DA44}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7982578B-B72C-4685-8CB2-90A39B78998D}

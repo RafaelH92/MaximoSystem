@@ -8,21 +8,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaximoSystem.Entidades;
 
 namespace MaximoSystem
 {
     public partial class frmCadCentroDeCusto : Form
     {
+        CcustoService service = new CcustoService();
+
         frmFluxoCaixa frm;
         frmCadCustoDespesa frmCusto;
         bool checkCancel = true;
-        CcustoService service = new CcustoService();
-      
+
+
         public frmCadCentroDeCusto(frmFluxoCaixa frmCaixa)
         {
             InitializeComponent();
             frm = frmCaixa;
+
         }
+
+        private string ValidarCad()  // FUNÇÃO PARA VALIDAR O CADASTRO DE CENTRO DE CUSTO
+        {
+            if (txtCodigo.Text == string.Empty)
+            {
+                return "Preencha o campo do codigo!";
+            }
+            else if (txtDescricao.Text == string.Empty)
+            {
+                return "Preencha o campo de descrição!";
+            }
+            else return "Sucesso";
+        }
+     
         public frmCadCentroDeCusto(frmCadCustoDespesa frmCustos)
         {
 
@@ -79,7 +97,28 @@ namespace MaximoSystem
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                service.Cadastrar(objGerado());
+                MessageBox.Show("Cadastro efetuado com suceso!");
+                this.Close(); //FECHA O FORMULARIO
 
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao Salvar " + ex.Message);
+            }
+        }
+
+        public Ccusto objGerado()
+        {
+            Ccusto obj = new Ccusto();
+            obj.Cd_custo = txtCodigo.Text != "" ? Convert.ToInt64(txtCodigo.Text) : 0; //CONVERTE LONG PARA STRING UTILIZANDO O IF IN-LINE
+            obj.De_custo = txtDescricao.Text;
+            obj.Fg_ativo = 0; // 0 - CENTRO DE CUSTO ATIVO
+
+            return obj;
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
