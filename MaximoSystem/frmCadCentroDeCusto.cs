@@ -100,7 +100,7 @@ namespace MaximoSystem
             try
             {
                 service.Cadastrar(objGerado());
-                MessageBox.Show("Cadastro efetuado com suceso!");
+                MessageBox.Show("Cadastro efetuado com sucesso!");
                 this.Close(); //FECHA O FORMULARIO
 
             }
@@ -113,7 +113,7 @@ namespace MaximoSystem
 
         public Ccusto objGerado()
         {
-            Ccusto obj = new Ccusto();
+            Ccusto obj = new Ccusto(); 
             obj.Cd_custo = txtCodigo.Text != "" ? Convert.ToInt64(txtCodigo.Text) : 0; //CONVERTE LONG PARA STRING UTILIZANDO O IF IN-LINE
             obj.De_custo = txtDescricao.Text;
             obj.Fg_ativo = 0; // 0 - CENTRO DE CUSTO ATIVO

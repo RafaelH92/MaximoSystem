@@ -12,7 +12,7 @@ namespace MaximoSystem.Controllers.Context
 {
     class SistemaContext : DbContext 
     {
-        public SistemaContext() : base ("Server=LGGRAMDERAFAEL\\SQLEXPRESS; Database=maximosystem; Integrated Security=True;")
+        public SistemaContext() : base ("Server=CP0490\\SQLEXPRESS; Database=maximosystem; Integrated Security=True;")
         {
 
         }
@@ -27,6 +27,8 @@ namespace MaximoSystem.Controllers.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) //ACESSA AS TABELAS/OBJETOS E GERA O CONTEXTO
         {
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+
             Database.SetInitializer<SistemaContext>(null);
             modelBuilder.Configurations.Add(new UsuarioMap());
             modelBuilder.Configurations.Add(new CcustoMap());

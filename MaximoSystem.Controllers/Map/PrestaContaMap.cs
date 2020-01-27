@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace MaximoSystem.Controllers.Map
         {
             this.ToTable("PRESTA_CONTAS");
             this.HasKey(d => d.Id_pre_con);
+            this.Property(d => d.Id_pre_con).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             this.Property(d => d.Id_pre_con).HasColumnName("ID_PRE_CON");
             this.Property(d => d.Dt_movimento).HasColumnName("DT_MOVIMENTO").IsRequired();
             this.Property(d => d.Id_cc).HasColumnName("ID_CC");
