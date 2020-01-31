@@ -28,7 +28,8 @@
                         DE_CDESPESA = c.String(nullable: false),
                         FG_INATIVO = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.ID_CDES, t.CD_CDESPESA });
+                .PrimaryKey(t => new { t.ID_CDES, t.CD_CDESPESA })
+                .Index(t => t.CD_CDESPESA, unique: true, name: "Index");
             
             CreateTable(
                 "dbo.FLUXO_CAIXA",
@@ -55,7 +56,8 @@
                         DE_FUNC = c.String(nullable: false),
                         FG_ATIVO = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.ID_FUNC, t.CD_FUNC });
+                .PrimaryKey(t => new { t.ID_FUNC, t.CD_FUNC })
+                .Index(t => t.CD_FUNC, unique: true, name: "Index");
             
             CreateTable(
                 "dbo.HIST_PRESTA_CONTAS",
@@ -104,7 +106,8 @@
                         SENHA_USUARIO = c.String(nullable: false),
                         FG_USUARIO = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.ID_USUARIO, t.USUARIO_SISTEMA });
+                .PrimaryKey(t => new { t.ID_USUARIO, t.USUARIO_SISTEMA })
+                .Index(t => t.USUARIO_SISTEMA, unique: true, name: "Index");
             
         }
         
@@ -115,11 +118,14 @@
             DropForeignKey("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CDES", "CD_CDESPESA" }, "dbo.CDESPESAS");
             DropForeignKey("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CC", "CD_CUSTO" }, "dbo.CCUSTOS");
             DropForeignKey("dbo.FLUXO_CAIXA", new[] { "ID_FUNC", "CD_FUNC" }, "dbo.FUNCIONARIOS");
+            DropIndex("dbo.USUARIOS", "Index");
             DropIndex("dbo.PRESTA_CONTAS", new[] { "ID_CDES", "CD_CDESPESA" });
             DropIndex("dbo.PRESTA_CONTAS", new[] { "ID_CC", "CD_CUSTO" });
             DropIndex("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CDES", "CD_CDESPESA" });
             DropIndex("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CC", "CD_CUSTO" });
+            DropIndex("dbo.FUNCIONARIOS", "Index");
             DropIndex("dbo.FLUXO_CAIXA", new[] { "ID_FUNC", "CD_FUNC" });
+            DropIndex("dbo.CDESPESAS", "Index");
             DropIndex("dbo.CCUSTOS", "Index");
             DropTable("dbo.USUARIOS");
             DropTable("dbo.PRESTA_CONTAS");

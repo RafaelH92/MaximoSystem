@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace MaximoSystem.Controllers.Map
             this.Property(d => d.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             this.Property(d => d.Id).HasColumnName("ID_USUARIO");
             this.Property(d => d.Nome).HasColumnName("NOME_USUARIO").IsRequired();
-            this.Property(d => d.User).HasColumnName("USUARIO_SISTEMA").IsRequired();
+            this.Property(d => d.User).HasColumnName("USUARIO_SISTEMA").IsRequired().HasColumnAnnotation("Index", new IndexAnnotation(new[] { new IndexAttribute("Index") { IsUnique = true } })); ;
             this.Property(d => d.Senha).HasColumnName("SENHA_USUARIO").IsRequired();
             this.Property(d => d.Fg_ativo).HasColumnName("FG_USUARIO").IsRequired();
             

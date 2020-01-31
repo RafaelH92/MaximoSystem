@@ -27,19 +27,6 @@ namespace MaximoSystem
             frm = frmCaixa;
 
         }
-
-        private string ValidarCad()  // FUNÇÃO PARA VALIDAR O CADASTRO DE CENTRO DE CUSTO
-        {
-            if (txtCodigo.Text == string.Empty)
-            {
-                return "Preencha o campo do codigo!";
-            }
-            else if (txtDescricao.Text == string.Empty)
-            {
-                return "Preencha o campo de descrição!";
-            }
-            else return "Sucesso";
-        }
      
         public frmCadCentroDeCusto(frmCadCustoDespesa frmCustos)
         {
@@ -47,9 +34,10 @@ namespace MaximoSystem
             frmCusto = frmCustos;
         }
 
-
             private void FrmCadCentroDeCusto_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'maximosystemDataSet.CCUSTOS'. Você pode movê-la ou removê-la conforme necessário.
+            this.cCUSTOSTableAdapter.Fill(this.maximosystemDataSet.CCUSTOS);
             tbControlCusto.SelectTab(0);
 
 
@@ -57,16 +45,9 @@ namespace MaximoSystem
 
             var Id = frmCadCustoDespesa.IdForm;
 
-            if (Id == 1)
-            {
-                populaGridCusto();
-            }
-            else
-            {
-                populaGridDespesa();
-            }
 
         }
+
 
         private void BtnVoltar_Click(object sender, EventArgs e)
         {
@@ -99,15 +80,46 @@ namespace MaximoSystem
         {
             try
             {
-                service.Cadastrar(objGerado());
-                MessageBox.Show("Cadastro efetuado com sucesso!");
-                this.Close(); //FECHA O FORMULARIO
+                if (btnSalvar.Text == "Salvar")
+                {
+
+                    if (txtCodigo.Text == string.Empty)
+                    {
+                        MessageBox.Show("PREENCHA O CAMPO DE CODIGO");
+                        txtCodigo.Focus();
+
+                    }
+                    else if (txtDescricao.Text == string.Empty)
+                    {
+                        MessageBox.Show("PREENCHA O CAMPO DE DESCRIÇÃO!");
+                        txtDescricao.Focus();
+                    }
+                    else
+                    {
+                        service.Cadastrar(objGerado());
+                        MessageBox.Show("Cadastro efetuado com sucesso!");
+                        this.Close(); //FECHA O FORMULARIO
+
+                    }
+                }
+
+                if (btnSalvar.Text == "Modificar")
+                {
+
+                    Ccusto obj = new Ccusto();
+                    obj.Cd_custo = txtCodigo.Text != "" ? Convert.ToInt64(txtCodigo.Text) : 0; //CONVERTE LONG PARA STRING UTILIZANDO O IF IN-LINE
+                    obj.De_custo = txtDescricao.Text;
+                 
+                    service.Modificar(obj);
+
+                }
 
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show("Erro ao Salvar " + ex.Message);
+
             }
         }
 
@@ -163,8 +175,8 @@ namespace MaximoSystem
             btnExcluir.Visible = true;
 
             //PASSA PARA AS TXT OS VALORES SELECIONADOS NO GRID
-            txtCodigo.Text = dgvCusto.CurrentRow.Cells[0].Value.ToString();
-            txtDescricao.Text = dgvCusto.CurrentRow.Cells[1].Value.ToString();
+            txtCodigo.Text = dgvCusto.CurrentRow.Cells[1].Value.ToString();
+            txtDescricao.Text = dgvCusto.CurrentRow.Cells[2].Value.ToString();
 
 
             txtCodigo.SelectionStart = 0;
@@ -188,25 +200,10 @@ namespace MaximoSystem
             btnExcluir.Visible = false;
         }
 
-        public void populaGridCusto()
-        {
-            dgvCusto.Rows.Add(50302, "AGRICOLA", "S");
-            dgvCusto.Rows.Add(50337, "TRANSPORTE", "S");
-            dgvCusto.Rows.Add(50369, "INDUSTRIA", "S");
-            dgvCusto.Rows.Add(50306, "REFEITÓRIO", "S");
-            dgvCusto.Rows.Add(50302, "AGRICOLA", "S");
-            dgvCusto.Rows.Add(50337, "TRANSPORTE", "S");
-            dgvCusto.Rows.Add(50369, "INDUSTRIA", "S");
-            dgvCusto.Rows.Add(50306, "REFEITÓRIO", "S");
-            dgvCusto.ClearSelection();
-        }
 
-        public void populaGridDespesa()
+        private void dgvCusto_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dgvCusto.Rows.Add(20110, "CONSERVAÇÃO/LIMPEZA", "S");
-            dgvCusto.Rows.Add(20111, "MATERIAIS DIVERSOS", "S");
-            dgvCusto.Rows.Add(20112, "FRETES E CARRETOS PESSOA FÍSICA", "S");
-            dgvCusto.ClearSelection();
+
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadCentroDeCusto));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,9 +38,6 @@
             this.tbControlCusto = new MetroFramework.Controls.MetroTabControl();
             this.Page1 = new MetroFramework.Controls.MetroTabPage();
             this.dgvCusto = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Page2 = new MetroFramework.Controls.MetroTabPage();
             this.ckbInativo = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -51,10 +49,19 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.maximosystemDataSet = new MaximoSystem.maximosystemDataSet();
+            this.cCUSTOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cCUSTOSTableAdapter = new MaximoSystem.maximosystemDataSetTableAdapters.CCUSTOSTableAdapter();
+            this.iDCCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDCUSTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dECUSTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fGINATIVODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbControlCusto.SuspendLayout();
             this.Page1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCusto)).BeginInit();
             this.Page2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.maximosystemDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCUSTOSBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -127,6 +134,7 @@
             this.dgvCusto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvCusto.AutoGenerateColumns = false;
             this.dgvCusto.BackgroundColor = System.Drawing.Color.Black;
             this.dgvCusto.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -139,9 +147,11 @@
             this.dgvCusto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCusto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCusto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
+            this.iDCCDataGridViewTextBoxColumn,
+            this.cDCUSTODataGridViewTextBoxColumn,
+            this.dECUSTODataGridViewTextBoxColumn,
+            this.fGINATIVODataGridViewTextBoxColumn});
+            this.dgvCusto.DataSource = this.cCUSTOSBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -155,6 +165,7 @@
             this.dgvCusto.GridColor = System.Drawing.Color.Black;
             this.dgvCusto.Location = new System.Drawing.Point(3, 14);
             this.dgvCusto.Name = "dgvCusto";
+            this.dgvCusto.ReadOnly = true;
             this.dgvCusto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -167,21 +178,7 @@
             this.dgvCusto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCusto.Size = new System.Drawing.Size(887, 410);
             this.dgvCusto.TabIndex = 2;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "CODIGO";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "DESCRIÇÃO";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "ATIVO";
-            this.Column3.Name = "Column3";
+            this.dgvCusto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCusto_CellContentClick);
             // 
             // Page2
             // 
@@ -364,6 +361,48 @@
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
+            // maximosystemDataSet
+            // 
+            this.maximosystemDataSet.DataSetName = "maximosystemDataSet";
+            this.maximosystemDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cCUSTOSBindingSource
+            // 
+            this.cCUSTOSBindingSource.DataMember = "CCUSTOS";
+            this.cCUSTOSBindingSource.DataSource = this.maximosystemDataSet;
+            // 
+            // cCUSTOSTableAdapter
+            // 
+            this.cCUSTOSTableAdapter.ClearBeforeFill = true;
+            // 
+            // iDCCDataGridViewTextBoxColumn
+            // 
+            this.iDCCDataGridViewTextBoxColumn.DataPropertyName = "ID_CC";
+            this.iDCCDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDCCDataGridViewTextBoxColumn.Name = "iDCCDataGridViewTextBoxColumn";
+            this.iDCCDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cDCUSTODataGridViewTextBoxColumn
+            // 
+            this.cDCUSTODataGridViewTextBoxColumn.DataPropertyName = "CD_CUSTO";
+            this.cDCUSTODataGridViewTextBoxColumn.HeaderText = "CODIGO";
+            this.cDCUSTODataGridViewTextBoxColumn.Name = "cDCUSTODataGridViewTextBoxColumn";
+            this.cDCUSTODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dECUSTODataGridViewTextBoxColumn
+            // 
+            this.dECUSTODataGridViewTextBoxColumn.DataPropertyName = "DE_CUSTO";
+            this.dECUSTODataGridViewTextBoxColumn.HeaderText = "DESCRIÇÃO";
+            this.dECUSTODataGridViewTextBoxColumn.Name = "dECUSTODataGridViewTextBoxColumn";
+            this.dECUSTODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fGINATIVODataGridViewTextBoxColumn
+            // 
+            this.fGINATIVODataGridViewTextBoxColumn.DataPropertyName = "FG_INATIVO";
+            this.fGINATIVODataGridViewTextBoxColumn.HeaderText = "INATIVO";
+            this.fGINATIVODataGridViewTextBoxColumn.Name = "fGINATIVODataGridViewTextBoxColumn";
+            this.fGINATIVODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // frmCadCentroDeCusto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,6 +425,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCusto)).EndInit();
             this.Page2.ResumeLayout(false);
             this.Page2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.maximosystemDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCUSTOSBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,13 +445,17 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvCusto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnExcluir;
         public MetroFramework.Controls.MetroTabPage Page1;
         public MetroFramework.Controls.MetroTabPage Page2;
+        private maximosystemDataSet maximosystemDataSet;
+        private System.Windows.Forms.BindingSource cCUSTOSBindingSource;
+        private maximosystemDataSetTableAdapters.CCUSTOSTableAdapter cCUSTOSTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDCCDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cDCUSTODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dECUSTODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fGINATIVODataGridViewTextBoxColumn;
     }
 }
