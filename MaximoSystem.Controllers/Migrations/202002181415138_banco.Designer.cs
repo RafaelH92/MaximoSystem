@@ -13,7 +13,7 @@ namespace MaximoSystem.Controllers.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202001281414485_banco"; }
+            get { return "202002181415138_banco"; }
         }
         
         string IMigrationMetadata.Source

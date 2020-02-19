@@ -21,9 +21,9 @@ namespace MaximoSystem.Model
         List<Ccusto>Listar();
 
         [OperationContract]
-        void Deletar(int id);
+        void Deletar(Ccusto obj);
 
         [OperationContract]
-        void Modificar(Ccusto objNew);
+        void Modificar(Ccusto obj);
     }
 }

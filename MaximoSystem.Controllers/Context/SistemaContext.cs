@@ -29,6 +29,7 @@ namespace MaximoSystem.Controllers.Context
         {
             var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
 
+
             Database.SetInitializer<SistemaContext>(null);
             modelBuilder.Configurations.Add(new UsuarioMap());
             modelBuilder.Configurations.Add(new CcustoMap());

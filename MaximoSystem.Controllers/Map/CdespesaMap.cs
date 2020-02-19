@@ -16,7 +16,8 @@ namespace MaximoSystem.Controllers.Map
         public CdespesaMap() //MAPEANDO A CLASSE CDESPESAS
         {
             this.ToTable("CDESPESAS");
-            this.HasKey(d => new { d.Id_cdes, d.Cd_cdespesa});
+            //this.HasKey(d => new { d.Id_cdes, d.Cd_cdespesa});
+            this.HasKey(d => d.Id_cdes);
             this.Property(d => d.Id_cdes).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             this.Property(d => d.Id_cdes).HasColumnName("ID_CDES");
             this.Property(d => d.Cd_cdespesa).HasColumnName("CD_CDESPESA").HasColumnAnnotation("Index", new IndexAnnotation(new[] { new IndexAttribute("Index") { IsUnique = true } })); ;

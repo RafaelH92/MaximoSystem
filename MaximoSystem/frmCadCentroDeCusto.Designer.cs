@@ -30,15 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadCentroDeCusto));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.tbControlCusto = new MetroFramework.Controls.MetroTabControl();
             this.Page1 = new MetroFramework.Controls.MetroTabPage();
             this.dgvCusto = new System.Windows.Forms.DataGridView();
+            this.cCUSTOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.maximosystemDataSet = new MaximoSystem.maximosystemDataSet();
             this.Page2 = new MetroFramework.Controls.MetroTabPage();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.ckbInativo = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -49,19 +53,17 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.maximosystemDataSet = new MaximoSystem.maximosystemDataSet();
-            this.cCUSTOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cCUSTOSTableAdapter = new MaximoSystem.maximosystemDataSetTableAdapters.CCUSTOSTableAdapter();
-            this.iDCCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cDCUSTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dECUSTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fGINATIVODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dECUSTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDCUSTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDCCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbControlCusto.SuspendLayout();
             this.Page1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCusto)).BeginInit();
-            this.Page2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.maximosystemDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cCUSTOSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maximosystemDataSet)).BeginInit();
+            this.Page2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -137,14 +139,14 @@
             this.dgvCusto.AutoGenerateColumns = false;
             this.dgvCusto.BackgroundColor = System.Drawing.Color.Black;
             this.dgvCusto.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCusto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCusto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCusto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCusto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDCCDataGridViewTextBoxColumn,
@@ -152,14 +154,14 @@
             this.dECUSTODataGridViewTextBoxColumn,
             this.fGINATIVODataGridViewTextBoxColumn});
             this.dgvCusto.DataSource = this.cCUSTOSBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(83)))), ((int)(((byte)(69)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCusto.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(83)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCusto.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCusto.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCusto.EnableHeadersVisualStyles = false;
             this.dgvCusto.GridColor = System.Drawing.Color.Black;
@@ -167,22 +169,34 @@
             this.dgvCusto.Name = "dgvCusto";
             this.dgvCusto.ReadOnly = true;
             this.dgvCusto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(83)))), ((int)(((byte)(69)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(83)))), ((int)(((byte)(69)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCusto.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(83)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(83)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCusto.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCusto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCusto.Size = new System.Drawing.Size(887, 410);
             this.dgvCusto.TabIndex = 2;
             this.dgvCusto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCusto_CellContentClick);
             // 
+            // cCUSTOSBindingSource
+            // 
+            this.cCUSTOSBindingSource.DataMember = "CCUSTOS";
+            this.cCUSTOSBindingSource.DataSource = this.maximosystemDataSet;
+            // 
+            // maximosystemDataSet
+            // 
+            this.maximosystemDataSet.DataSetName = "maximosystemDataSet";
+            this.maximosystemDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // Page2
             // 
             this.Page2.BackColor = System.Drawing.Color.White;
+            this.Page2.Controls.Add(this.txtId);
+            this.Page2.Controls.Add(this.label3);
             this.Page2.Controls.Add(this.ckbInativo);
             this.Page2.Controls.Add(this.btnCancelar);
             this.Page2.Controls.Add(this.btnSalvar);
@@ -202,6 +216,31 @@
             this.Page2.VerticalScrollbarBarColor = true;
             this.Page2.VerticalScrollbarHighlightOnWheel = false;
             this.Page2.VerticalScrollbarSize = 10;
+            // 
+            // txtId
+            // 
+            this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtId.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtId.Location = new System.Drawing.Point(109, 52);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(77, 23);
+            this.txtId.TabIndex = 11;
+            this.txtId.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label3.Location = new System.Drawing.Point(105, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 19);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "&Id:";
+            this.label3.Visible = false;
             // 
             // ckbInativo
             // 
@@ -261,7 +300,7 @@
             this.txtDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDescricao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtDescricao.Location = new System.Drawing.Point(109, 142);
+            this.txtDescricao.Location = new System.Drawing.Point(109, 158);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(263, 23);
             this.txtDescricao.TabIndex = 6;
@@ -272,7 +311,7 @@
             this.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCodigo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtCodigo.Location = new System.Drawing.Point(109, 72);
+            this.txtCodigo.Location = new System.Drawing.Point(109, 100);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(263, 23);
             this.txtCodigo.TabIndex = 5;
@@ -283,7 +322,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label2.Location = new System.Drawing.Point(105, 120);
+            this.label2.Location = new System.Drawing.Point(105, 136);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 19);
             this.label2.TabIndex = 4;
@@ -295,7 +334,7 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label4.Location = new System.Drawing.Point(105, 50);
+            this.label4.Location = new System.Drawing.Point(105, 78);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 19);
             this.label4.TabIndex = 4;
@@ -361,33 +400,16 @@
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
-            // maximosystemDataSet
-            // 
-            this.maximosystemDataSet.DataSetName = "maximosystemDataSet";
-            this.maximosystemDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cCUSTOSBindingSource
-            // 
-            this.cCUSTOSBindingSource.DataMember = "CCUSTOS";
-            this.cCUSTOSBindingSource.DataSource = this.maximosystemDataSet;
-            // 
             // cCUSTOSTableAdapter
             // 
             this.cCUSTOSTableAdapter.ClearBeforeFill = true;
             // 
-            // iDCCDataGridViewTextBoxColumn
+            // fGINATIVODataGridViewTextBoxColumn
             // 
-            this.iDCCDataGridViewTextBoxColumn.DataPropertyName = "ID_CC";
-            this.iDCCDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDCCDataGridViewTextBoxColumn.Name = "iDCCDataGridViewTextBoxColumn";
-            this.iDCCDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cDCUSTODataGridViewTextBoxColumn
-            // 
-            this.cDCUSTODataGridViewTextBoxColumn.DataPropertyName = "CD_CUSTO";
-            this.cDCUSTODataGridViewTextBoxColumn.HeaderText = "CODIGO";
-            this.cDCUSTODataGridViewTextBoxColumn.Name = "cDCUSTODataGridViewTextBoxColumn";
-            this.cDCUSTODataGridViewTextBoxColumn.ReadOnly = true;
+            this.fGINATIVODataGridViewTextBoxColumn.DataPropertyName = "FG_INATIVO";
+            this.fGINATIVODataGridViewTextBoxColumn.HeaderText = "INATIVO";
+            this.fGINATIVODataGridViewTextBoxColumn.Name = "fGINATIVODataGridViewTextBoxColumn";
+            this.fGINATIVODataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dECUSTODataGridViewTextBoxColumn
             // 
@@ -396,12 +418,19 @@
             this.dECUSTODataGridViewTextBoxColumn.Name = "dECUSTODataGridViewTextBoxColumn";
             this.dECUSTODataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // fGINATIVODataGridViewTextBoxColumn
+            // cDCUSTODataGridViewTextBoxColumn
             // 
-            this.fGINATIVODataGridViewTextBoxColumn.DataPropertyName = "FG_INATIVO";
-            this.fGINATIVODataGridViewTextBoxColumn.HeaderText = "INATIVO";
-            this.fGINATIVODataGridViewTextBoxColumn.Name = "fGINATIVODataGridViewTextBoxColumn";
-            this.fGINATIVODataGridViewTextBoxColumn.ReadOnly = true;
+            this.cDCUSTODataGridViewTextBoxColumn.DataPropertyName = "CD_CUSTO";
+            this.cDCUSTODataGridViewTextBoxColumn.HeaderText = "CODIGO";
+            this.cDCUSTODataGridViewTextBoxColumn.Name = "cDCUSTODataGridViewTextBoxColumn";
+            this.cDCUSTODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iDCCDataGridViewTextBoxColumn
+            // 
+            this.iDCCDataGridViewTextBoxColumn.DataPropertyName = "ID_CC";
+            this.iDCCDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDCCDataGridViewTextBoxColumn.Name = "iDCCDataGridViewTextBoxColumn";
+            this.iDCCDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frmCadCentroDeCusto
             // 
@@ -423,10 +452,10 @@
             this.tbControlCusto.ResumeLayout(false);
             this.Page1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCusto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cCUSTOSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maximosystemDataSet)).EndInit();
             this.Page2.ResumeLayout(false);
             this.Page2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.maximosystemDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cCUSTOSBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -450,9 +479,11 @@
         private System.Windows.Forms.Button btnExcluir;
         public MetroFramework.Controls.MetroTabPage Page1;
         public MetroFramework.Controls.MetroTabPage Page2;
-        private maximosystemDataSet maximosystemDataSet;
         private System.Windows.Forms.BindingSource cCUSTOSBindingSource;
         private maximosystemDataSetTableAdapters.CCUSTOSTableAdapter cCUSTOSTableAdapter;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label label3;
+        private maximosystemDataSet maximosystemDataSet;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDCCDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cDCUSTODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dECUSTODataGridViewTextBoxColumn;

@@ -16,9 +16,10 @@ namespace MaximoSystem.Controllers.Map
         public UsuarioMap()
         {
             this.ToTable("USUARIOS");
-            this.HasKey(d => new { d.Id, d.User });
-            this.Property(d => d.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            this.Property(d => d.Id).HasColumnName("ID_USUARIO");
+            //this.HasKey(d => new { d.Id, d.User });
+            this.HasKey(d => d.User);
+            //this.Property(d => d.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            //this.Property(d => d.Id).HasColumnName("ID_USUARIO");
             this.Property(d => d.Nome).HasColumnName("NOME_USUARIO").IsRequired();
             this.Property(d => d.User).HasColumnName("USUARIO_SISTEMA").IsRequired().HasColumnAnnotation("Index", new IndexAnnotation(new[] { new IndexAttribute("Index") { IsUnique = true } })); ;
             this.Property(d => d.Senha).HasColumnName("SENHA_USUARIO").IsRequired();

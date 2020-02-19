@@ -16,7 +16,7 @@
                         DE_CUSTO = c.String(nullable: false),
                         FG_INATIVO = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.ID_CC, t.CD_CUSTO })
+                .PrimaryKey(t => t.ID_CC)
                 .Index(t => t.CD_CUSTO, unique: true, name: "Index");
             
             CreateTable(
@@ -28,7 +28,7 @@
                         DE_CDESPESA = c.String(nullable: false),
                         FG_INATIVO = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.ID_CDES, t.CD_CDESPESA })
+                .PrimaryKey(t => t.ID_CDES)
                 .Index(t => t.CD_CDESPESA, unique: true, name: "Index");
             
             CreateTable(
@@ -44,8 +44,8 @@
                         TP_OPER = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID_FLCA)
-                .ForeignKey("dbo.FUNCIONARIOS", t => new { t.ID_FUNC, t.CD_FUNC }, cascadeDelete: true)
-                .Index(t => new { t.ID_FUNC, t.CD_FUNC });
+                .ForeignKey("dbo.FUNCIONARIOS", t => t.ID_FUNC, cascadeDelete: true)
+                .Index(t => t.ID_FUNC);
             
             CreateTable(
                 "dbo.FUNCIONARIOS",
@@ -56,7 +56,7 @@
                         DE_FUNC = c.String(nullable: false),
                         FG_ATIVO = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.ID_FUNC, t.CD_FUNC })
+                .PrimaryKey(t => t.ID_FUNC)
                 .Index(t => t.CD_FUNC, unique: true, name: "Index");
             
             CreateTable(
@@ -72,10 +72,10 @@
                         VALOR = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => t.ID_HIS_PRE_CON)
-                .ForeignKey("dbo.CCUSTOS", t => new { t.ID_CC, t.CD_CUSTO }, cascadeDelete: true)
-                .ForeignKey("dbo.CDESPESAS", t => new { t.ID_CDES, t.CD_CDESPESA }, cascadeDelete: true)
-                .Index(t => new { t.ID_CC, t.CD_CUSTO })
-                .Index(t => new { t.ID_CDES, t.CD_CDESPESA });
+                .ForeignKey("dbo.CCUSTOS", t => t.ID_CC, cascadeDelete: true)
+                .ForeignKey("dbo.CDESPESAS", t => t.ID_CDES, cascadeDelete: true)
+                .Index(t => t.ID_CC)
+                .Index(t => t.ID_CDES);
             
             CreateTable(
                 "dbo.PRESTA_CONTAS",
@@ -91,40 +91,39 @@
                         FG_DISPONIVEL = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID_PRE_CON)
-                .ForeignKey("dbo.CCUSTOS", t => new { t.ID_CC, t.CD_CUSTO }, cascadeDelete: true)
-                .ForeignKey("dbo.CDESPESAS", t => new { t.ID_CDES, t.CD_CDESPESA }, cascadeDelete: true)
-                .Index(t => new { t.ID_CC, t.CD_CUSTO })
-                .Index(t => new { t.ID_CDES, t.CD_CDESPESA });
+                .ForeignKey("dbo.CCUSTOS", t => t.ID_CC, cascadeDelete: true)
+                .ForeignKey("dbo.CDESPESAS", t => t.ID_CDES, cascadeDelete: true)
+                .Index(t => t.ID_CC)
+                .Index(t => t.ID_CDES);
             
             CreateTable(
                 "dbo.USUARIOS",
                 c => new
                     {
-                        ID_USUARIO = c.Int(nullable: false, identity: true),
                         USUARIO_SISTEMA = c.String(nullable: false, maxLength: 128),
                         NOME_USUARIO = c.String(nullable: false),
                         SENHA_USUARIO = c.String(nullable: false),
                         FG_USUARIO = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.ID_USUARIO, t.USUARIO_SISTEMA })
+                .PrimaryKey(t => t.USUARIO_SISTEMA)
                 .Index(t => t.USUARIO_SISTEMA, unique: true, name: "Index");
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.PRESTA_CONTAS", new[] { "ID_CDES", "CD_CDESPESA" }, "dbo.CDESPESAS");
-            DropForeignKey("dbo.PRESTA_CONTAS", new[] { "ID_CC", "CD_CUSTO" }, "dbo.CCUSTOS");
-            DropForeignKey("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CDES", "CD_CDESPESA" }, "dbo.CDESPESAS");
-            DropForeignKey("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CC", "CD_CUSTO" }, "dbo.CCUSTOS");
-            DropForeignKey("dbo.FLUXO_CAIXA", new[] { "ID_FUNC", "CD_FUNC" }, "dbo.FUNCIONARIOS");
+            DropForeignKey("dbo.PRESTA_CONTAS", "ID_CDES", "dbo.CDESPESAS");
+            DropForeignKey("dbo.PRESTA_CONTAS", "ID_CC", "dbo.CCUSTOS");
+            DropForeignKey("dbo.HIST_PRESTA_CONTAS", "ID_CDES", "dbo.CDESPESAS");
+            DropForeignKey("dbo.HIST_PRESTA_CONTAS", "ID_CC", "dbo.CCUSTOS");
+            DropForeignKey("dbo.FLUXO_CAIXA", "ID_FUNC", "dbo.FUNCIONARIOS");
             DropIndex("dbo.USUARIOS", "Index");
-            DropIndex("dbo.PRESTA_CONTAS", new[] { "ID_CDES", "CD_CDESPESA" });
-            DropIndex("dbo.PRESTA_CONTAS", new[] { "ID_CC", "CD_CUSTO" });
-            DropIndex("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CDES", "CD_CDESPESA" });
-            DropIndex("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CC", "CD_CUSTO" });
+            DropIndex("dbo.PRESTA_CONTAS", new[] { "ID_CDES" });
+            DropIndex("dbo.PRESTA_CONTAS", new[] { "ID_CC" });
+            DropIndex("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CDES" });
+            DropIndex("dbo.HIST_PRESTA_CONTAS", new[] { "ID_CC" });
             DropIndex("dbo.FUNCIONARIOS", "Index");
-            DropIndex("dbo.FLUXO_CAIXA", new[] { "ID_FUNC", "CD_FUNC" });
+            DropIndex("dbo.FLUXO_CAIXA", new[] { "ID_FUNC" });
             DropIndex("dbo.CDESPESAS", "Index");
             DropIndex("dbo.CCUSTOS", "Index");
             DropTable("dbo.USUARIOS");

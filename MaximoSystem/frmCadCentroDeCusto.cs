@@ -15,7 +15,7 @@ namespace MaximoSystem
     public partial class frmCadCentroDeCusto : Form
     {
         CcustoService service = new CcustoService();
-
+        
         frmFluxoCaixa frm;
         frmCadCustoDespesa frmCusto;
         bool checkCancel = true;
@@ -72,15 +72,57 @@ namespace MaximoSystem
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
 
-           
+            try
+            {
+
+                service.Deletar(objGeradoMod());
+                MessageBox.Show("CENTRO DE CUSTO " + objGeradoMod().De_custo + " FOI DELETADO COM SUCESSO!");
+                this.cCUSTOSTableAdapter.Fill(this.maximosystemDataSet.CCUSTOS); //ATUALIZA O DATA GRID
+                eventoCancelar(); // RETORNA PARA O ABA DE CADASTRO 
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao Salvar " + ex.Message);
+
+            }
+
+
+
         }
 
-
+        //EVENTO QUE PASSA O OBJETO PARA SER INSERIDO
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (btnSalvar.Text == "Salvar")
+                if (btnSalvar.Text == "Salvar") {
+
+                    if (txtCodigo.Text == string.Empty)
+                    {
+                        MessageBox.Show("PREENCHA O CAMPO DE CODIGO");
+                        txtCodigo.Focus();
+
+                    }
+                    else if (txtDescricao.Text == string.Empty)
+                    {
+                        MessageBox.Show("PREENCHA O CAMPO DE DESCRIÇÃO!");
+                        txtDescricao.Focus();
+                    }
+                    else
+                    {
+                        service.Cadastrar(objGeradoCad());
+                        MessageBox.Show("CENTRO DE CUSTO " + objGeradoCad().De_custo + " FOI CADASTRADO COM SUCESSO!");
+                        this.cCUSTOSTableAdapter.Fill(this.maximosystemDataSet.CCUSTOS); //ATUALIZA O DATA GRID
+                        eventoCancelar(); // RETORNA PARA O ABA DE CADASTRO 
+
+                    }
+
+                    
+                }
+
+                if (btnSalvar.Text == "Modificar")
                 {
 
                     if (txtCodigo.Text == string.Empty)
@@ -96,23 +138,13 @@ namespace MaximoSystem
                     }
                     else
                     {
-                        service.Cadastrar(objGerado());
-                        MessageBox.Show("Cadastro efetuado com sucesso!");
-                        this.Close(); //FECHA O FORMULARIO
-
+                        service.Modificar(objGeradoMod());
+                        MessageBox.Show("O CENTRO DE CUSTO " + objGeradoMod().De_custo + " FOI MODIFICADO COM SUCESSO!");
+                        this.cCUSTOSTableAdapter.Fill(this.maximosystemDataSet.CCUSTOS); //ATUALIZA O DATA GRID
+                        eventoCancelar(); // RETORNA PARA O ABA DE CADASTRO 
                     }
                 }
 
-                if (btnSalvar.Text == "Modificar")
-                {
-
-                    Ccusto obj = new Ccusto();
-                    obj.Cd_custo = txtCodigo.Text != "" ? Convert.ToInt64(txtCodigo.Text) : 0; //CONVERTE LONG PARA STRING UTILIZANDO O IF IN-LINE
-                    obj.De_custo = txtDescricao.Text;
-                 
-                    service.Modificar(obj);
-
-                }
 
             }
             catch (Exception ex)
@@ -123,12 +155,30 @@ namespace MaximoSystem
             }
         }
 
-        public Ccusto objGerado()
+        //EVENTO QUE PASSA O OBJETO PARA SER MODIFICADO OU EXLUIDO
+        public Ccusto objGeradoMod()
+        {
+            Ccusto obj = new Ccusto();
+            obj.Id_cc = txtId.Text != "" ? Convert.ToInt32(txtId.Text) : 0;
+            obj.Cd_custo = txtCodigo.Text != "" ? Convert.ToInt64(txtCodigo.Text) : 0; //CONVERTE LONG PARA STRING UTILIZANDO O IF IN-LINE
+            obj.De_custo = txtDescricao.Text;
+            if (ckbInativo.Checked)
+            {
+                obj.Fg_ativo = obj.Fg_ativo + 1;
+            }
+            else
+            {
+                obj.Fg_ativo = 0;
+            } 
+
+            return obj;
+        }
+
+        public Ccusto objGeradoCad()
         {
             Ccusto obj = new Ccusto(); 
             obj.Cd_custo = txtCodigo.Text != "" ? Convert.ToInt64(txtCodigo.Text) : 0; //CONVERTE LONG PARA STRING UTILIZANDO O IF IN-LINE
             obj.De_custo = txtDescricao.Text;
-            obj.Fg_ativo = 0; // 0 - CENTRO DE CUSTO ATIVO
 
             return obj;
         }
@@ -175,9 +225,21 @@ namespace MaximoSystem
             btnExcluir.Visible = true;
 
             //PASSA PARA AS TXT OS VALORES SELECIONADOS NO GRID
+            txtId.Text = dgvCusto.CurrentRow.Cells[0].Value.ToString();
             txtCodigo.Text = dgvCusto.CurrentRow.Cells[1].Value.ToString();
             txtDescricao.Text = dgvCusto.CurrentRow.Cells[2].Value.ToString();
 
+            //VERIFICA SE O CADASTRO ESTA ATIVO OU INATIVO E CARREGA NO FORM
+            var Chek = dgvCusto.CurrentRow.Cells[3].Value.ToString();
+            if (Chek == "0")
+            {
+                ckbInativo.Checked = false;
+            }
+            else
+            {
+                ckbInativo.Checked = true;
+            }
+            
 
             txtCodigo.SelectionStart = 0;
 

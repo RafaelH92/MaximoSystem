@@ -40,26 +40,37 @@ namespace MaximoSystem.Controllers.Repositorios
    
         }
 
-        public void Deletar(int id)
+        public void Deletar(Ccusto obj)
         {
             using (var ctx = new SistemaContext())
             {
-                Ccusto obj = ctx.Ccusto.Find(id); //LOCALIZA O ID PARA A DELECAO    
-                ctx.Ccusto.Remove(obj); // DELETA O REGISTRO
-                ctx.SaveChanges(); 
+
+
+                ctx.Entry(obj).State = System.Data.Entity.EntityState.Deleted;
+                ctx.SaveChanges();
+
+                //Ccusto obj = ctx.Ccusto.Find(id); //LOCALIZA O ID PARA A DELECAO    
+                //ctx.Ccusto.Remove(obj); // DELETA O REGISTRO
+                //ctx.SaveChanges();
+
             }
         }
 
-        public void Modificar(Ccusto objNew)
+        public void Modificar(Ccusto obj)
         {
             using (var ctx = new SistemaContext()) //PASSA OS DADOS DA OBJETO ANTIGO PARA O OBJETO NOVO E ATUALIZA NO BANCO
             {
-                Ccusto objOld = ctx.Ccusto.Find(objNew.Id_cc);
-                objOld.Cd_custo = objNew.Cd_custo;
-                objOld.De_custo = objNew.De_custo;
-                objOld.Fg_ativo = objNew.Fg_ativo;
-                ctx.SaveChanges(); //SALVA AS ALTERACOES
+                ctx.Ccusto.Attach(obj);
+                ctx.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+                ctx.SaveChanges();
+
+                //Ccusto objOld = ctx.Ccusto.SingleOrDefault(x => x.Id_cc == objNew.Id_cc);
+                //objOld.Cd_custo = objNew.Cd_custo;
+                //objOld.De_custo = objNew.De_custo;
+                //objOld.Fg_ativo = objNew.Fg_ativo;
+                //ctx.SaveChanges(); //SALVA AS ALTERACOES
             }
         }
     }
+
 }

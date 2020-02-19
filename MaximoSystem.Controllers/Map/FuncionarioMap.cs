@@ -15,7 +15,8 @@ namespace MaximoSystem.Controllers.Map
         public FuncionarioMap()
         {
             this.ToTable("FUNCIONARIOS");
-            this.HasKey(d => new { d.Id_func, d.Cd_func });
+            //this.HasKey(d => new { d.Id_func, d.Cd_func });
+            this.HasKey(d => d.Id_func);
             this.Property(d => d.Id_func).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             this.Property(d => d.Id_func).HasColumnName("ID_FUNC");
             this.Property(d => d.Cd_func).HasColumnName("CD_FUNC").HasColumnAnnotation("Index", new IndexAnnotation(new[] { new IndexAttribute("Index") { IsUnique = true } })); ;

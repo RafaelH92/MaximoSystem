@@ -60,9 +60,9 @@
     <Compile Include="Map\HistPrestaContaMap.cs" />
     <Compile Include="Map\PrestaContaMap.cs" />
     <Compile Include="Map\UsuarioMap.cs" />
-    <Compile Include="Migrations\202001281414485_banco.cs" />
-    <Compile Include="Migrations\202001281414485_banco.designer.cs">
-      <DependentUpon>202001281414485_banco.cs</DependentUpon>
+    <Compile Include="Migrations\202002181415138_banco.cs" />
+    <Compile Include="Migrations\202002181415138_banco.designer.cs">
+      <DependentUpon>202002181415138_banco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,8 +79,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001281414485_banco.resx">
-      <DependentUpon>202001281414485_banco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002181415138_banco.resx">
+      <DependentUpon>202002181415138_banco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

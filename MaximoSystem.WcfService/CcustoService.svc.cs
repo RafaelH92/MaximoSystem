@@ -31,14 +31,14 @@ namespace MaximoSystem.WcfService
             return rep.listar();
         }
 
-        public void Deletar(int id)
+        public void Deletar(Ccusto obj)
         {
-            rep.Deletar(id);
+            rep.Deletar(obj);
         }
 
-        public void Modificar(Ccusto objNew)
+        public void Modificar(Ccusto obj)
         {
-            rep.Modificar(objNew);
+            rep.Modificar(obj);
         }
     }
 }
