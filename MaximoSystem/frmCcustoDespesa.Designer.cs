@@ -1,6 +1,6 @@
 ﻿namespace MaximoSystem
 {
-    partial class frmCadCustoDespesa
+    partial class frmCcustoDespesa
     {
         /// <summary>
         /// Required designer variable.

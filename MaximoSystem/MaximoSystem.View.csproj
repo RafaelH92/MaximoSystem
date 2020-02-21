@@ -84,11 +84,11 @@
     <Compile Include="frmCadCentroDeCusto.Designer.cs">
       <DependentUpon>frmCadCentroDeCusto.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCadCustoDespesa.cs">
+    <Compile Include="frmCcustoDespesa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCadCustoDespesa.Designer.cs">
-      <DependentUpon>frmCadCustoDespesa.cs</DependentUpon>
+    <Compile Include="frmCcustoDespesa.Designer.cs">
+      <DependentUpon>frmCcustoDespesa.cs</DependentUpon>
     </Compile>
     <Compile Include="frmFluxoCaixa.cs">
       <SubType>Form</SubType>
@@ -136,8 +136,8 @@
     <EmbeddedResource Include="frmCadCentroDeCusto.resx">
       <DependentUpon>frmCadCentroDeCusto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCadCustoDespesa.resx">
-      <DependentUpon>frmCadCustoDespesa.cs</DependentUpon>
+    <EmbeddedResource Include="frmCcustoDespesa.resx">
+      <DependentUpon>frmCcustoDespesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFluxoCaixa.resx">
       <DependentUpon>frmFluxoCaixa.cs</DependentUpon>

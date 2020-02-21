@@ -12,12 +12,12 @@ namespace MaximoSystem
 {
     
     
-    public partial class frmCadCustoDespesa : Form
+    public partial class frmCcustoDespesa : Form
     {
         frmFluxoCaixa frmCaixa;
 
         public static int IdForm;
-        public frmCadCustoDespesa(frmFluxoCaixa frm)
+        public frmCcustoDespesa(frmFluxoCaixa frm)
         {
             InitializeComponent();
 

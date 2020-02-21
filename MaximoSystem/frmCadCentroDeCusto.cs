@@ -17,7 +17,7 @@ namespace MaximoSystem
         CcustoService service = new CcustoService();
         
         frmFluxoCaixa frm;
-        frmCadCustoDespesa frmCusto;
+        frmCcustoDespesa frmCusto;
         bool checkCancel = true;
 
 
@@ -28,7 +28,7 @@ namespace MaximoSystem
 
         }
      
-        public frmCadCentroDeCusto(frmCadCustoDespesa frmCustos)
+        public frmCadCentroDeCusto(frmCcustoDespesa frmCustos)
         {
 
             frmCusto = frmCustos;
@@ -43,7 +43,7 @@ namespace MaximoSystem
 
             btnExcluir.Visible = false;
 
-            var Id = frmCadCustoDespesa.IdForm;
+            var Id = frmCcustoDespesa.IdForm;
 
 
         }

@@ -49,7 +49,7 @@ namespace MaximoSystem
             pnlBody.Controls.Clear();
 
             pnlItemAtivo.Top = btmCadastros.Top;
-            frmCadCustoDespesa frm = new frmCadCustoDespesa(this);
+            frmCcustoDespesa frm = new frmCcustoDespesa(this);
             frm.TopLevel = false;
 
             frm.Height = pnlBody.Height;
