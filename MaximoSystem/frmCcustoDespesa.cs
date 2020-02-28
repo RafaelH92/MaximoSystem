@@ -40,7 +40,7 @@ namespace MaximoSystem
         private void BtnContaDespesa_Click(object sender, EventArgs e)
         {
             IdForm = 2;
-            AddForm();
+            AddFormDespesa();
            
         }
         public void AddForm()
@@ -66,7 +66,30 @@ namespace MaximoSystem
           
         }
 
-               
-       
+        public void AddFormDespesa()
+        {
+            //LIMPA O PAINEL
+            frmCaixa.pnlBody.Controls.Clear();
+
+            //INSTANCIA O FORM DO CADASTRO DE CENTRO DE CUSTO
+            frmCadDespesa frmDespesa = new frmCadDespesa(frmCaixa);
+
+            //DEFINE O PROPRIEDADE TOPLEVEL COMO FALSE
+            frmDespesa.TopLevel = false;
+
+            frmDespesa.Height = frmCaixa.pnlBody.Height;
+            frmDespesa.Width = frmCaixa.pnlBody.Width;
+
+
+            frmCaixa.pnlBody.Controls.Add(frmDespesa);
+
+
+
+            frmDespesa.Show();
+
+        }
+
+
+
     }
 }

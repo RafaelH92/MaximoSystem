@@ -78,6 +78,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCadDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadDespesa.Designer.cs">
+      <DependentUpon>frmCadDespesa.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadCentroDeCusto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,8 +137,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>maximosystemDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="maximosystemDataSetDespesa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>maximosystemDataSetDespesa.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCadDespesa.resx">
+      <DependentUpon>frmCadDespesa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadCentroDeCusto.resx">
       <DependentUpon>frmCadCentroDeCusto.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +190,17 @@
     </None>
     <None Include="maximosystemDataSet.xss">
       <DependentUpon>maximosystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="maximosystemDataSetDespesa.xsc">
+      <DependentUpon>maximosystemDataSetDespesa.xsd</DependentUpon>
+    </None>
+    <None Include="maximosystemDataSetDespesa.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>maximosystemDataSetDespesa.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="maximosystemDataSetDespesa.xss">
+      <DependentUpon>maximosystemDataSetDespesa.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
