@@ -67,6 +67,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\CcustoRep.cs" />
+    <Compile Include="Repositorios\FuncionarioRep.cs" />
     <Compile Include="Repositorios\CdespesaRep.cs" />
   </ItemGroup>
   <ItemGroup>

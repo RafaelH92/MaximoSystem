@@ -33,7 +33,7 @@ namespace MaximoSystem
         private void BtnCentroDeCusto_Click(object sender, EventArgs e)
         {
             IdForm = 1;
-            AddForm();
+            AddFormCusto();
 
         }
 
@@ -43,7 +43,15 @@ namespace MaximoSystem
             AddFormDespesa();
            
         }
-        public void AddForm()
+
+        private void btnFuncionario_Click(object sender, EventArgs e)
+        {
+
+            IdForm = 3;
+            AddFormFuncionario();
+
+        }
+        public void AddFormCusto()
         {
             //LIMPA O PAINEL
             frmCaixa.pnlBody.Controls.Clear();
@@ -71,7 +79,7 @@ namespace MaximoSystem
             //LIMPA O PAINEL
             frmCaixa.pnlBody.Controls.Clear();
 
-            //INSTANCIA O FORM DO CADASTRO DE CENTRO DE CUSTO
+            //INSTANCIA O FORM DO CADASTRO DE CONTA DESPESA
             frmCadDespesa frmDespesa = new frmCadDespesa(frmCaixa);
 
             //DEFINE O PROPRIEDADE TOPLEVEL COMO FALSE
@@ -89,7 +97,28 @@ namespace MaximoSystem
 
         }
 
+        public void AddFormFuncionario()
+        {
+            //LIMPA O PAINEL
+            frmCaixa.pnlBody.Controls.Clear();
 
+            //INSTANCIA O FORM DO CADASTRO DE FUNCIONÁRIOS
+            frmCadFuncionario frmFunc = new frmCadFuncionario(frmCaixa);
+
+            //DEFINE O PROPRIEDADE TOPLEVEL COMO FALSE
+            frmFunc.TopLevel = false;
+
+            frmFunc.Height = frmCaixa.pnlBody.Height;
+            frmFunc.Width = frmCaixa.pnlBody.Width;
+
+
+            frmCaixa.pnlBody.Controls.Add(frmFunc);
+
+
+
+            frmFunc.Show();
+
+        }
 
     }
 }
